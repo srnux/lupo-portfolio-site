@@ -39,8 +39,8 @@ export type Copy = (typeof COPY)[Lang];
 export const SITE = {
   email: "hello@lupo-art.com",
   /** Downloadable portfolio file, served from /public. */
-  portfolioFile: "/lupo-portfolio.pdf",
-  heroVideo: "/images/timeline-1.mp4",
+  portfolioFile: `${import.meta.env.BASE_URL}lupo-portfolio.pdf`,
+  heroVideo: `${import.meta.env.BASE_URL}images/timeline-1.mp4`,
   /** How many works each gallery shows before "more" is clicked. */
   illustrationPreview: 3,
   conceptPreview: 2,
@@ -55,7 +55,7 @@ export type Work = {
   bg?: string;
 };
 
-const img = (file: string) => `/images/${file}`;
+const img = (file: string) => `${import.meta.env.BASE_URL}images/${file}`;
 
 /** Portrait A3 works – shown in the Illustration grid (1 : 1.414 frames). */
 export const ILLUSTRATIONS: Work[] = [
