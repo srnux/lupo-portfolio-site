@@ -252,20 +252,40 @@ button {
     rgba(8, 6, 7, 0.1) 100%
   );
 }
-.hero__title {
+/* Label, title and intro share one box in the dark left area,
+   so they align left and wrap before reaching the video. */
+.hero__text {
   position: relative;
   z-index: 2;
-  margin: 0;
-  padding: 96px 8% 10vh;
   max-width: 50%;
+  padding: 96px 0 10vh 8%;
+  text-shadow: 0 2px 26px rgba(8, 6, 7, 0.85);
+}
+.hero__label {
+  margin: 0 0 clamp(14px, 2vh, 24px);
+  font-size: clamp(13px, 1vw, 16px);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ember);
+  animation: rise 1100ms var(--ease) both;
+}
+.hero__title {
+  margin: 0 0 clamp(24px, 4vh, 48px);
   font-weight: 300;
-  font-size: clamp(38px, 5.6vw, 82px);
+  font-size: clamp(38px, 4.1vw, 60px);
   line-height: 1.12;
   letter-spacing: 0.5px;
   text-wrap: pretty;
-  text-shadow: 0 2px 26px rgba(8, 6, 7, 0.85);
   pointer-events: none;
-  animation: rise 1100ms var(--ease) both;
+  animation: rise 1100ms 100ms var(--ease) both;
+}
+.hero__intro {
+  margin: 0;
+  font-size: clamp(16.8px, 2.05vw, 30px);
+  line-height: 1.6;
+  color: rgba(242, 236, 230, 0.9);
+  text-wrap: pretty;
+  animation: rise 1100ms 200ms var(--ease) both;
 }
 
 /* Galleries */
@@ -574,7 +594,7 @@ button {
 /* ---------- Small screens ---------- */
 
 @media (max-width: 720px) {
-  .hero__title {
+  .hero__text {
     max-width: none;
     padding: 96px 16px 10vh;
   }

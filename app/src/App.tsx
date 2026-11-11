@@ -78,13 +78,18 @@ export default function App() {
           )}
           <div className="hero__shade" />
           <DustCanvas className="hero__layer hero__dust" />
-          <h1 className="hero__title">
-            Lupo´s
-            <br />
-            Illustration
-            <br />
-            &amp; Concept Art
-          </h1>
+          <div className="hero__text">
+            <p className="hero__label">{t.heroLabel}</p>
+            <h1 className="hero__title">
+              {t.heroTitle.split("\n").map((line, i) => (
+                <span key={line}>
+                  {i > 0 && <br />}
+                  {line}
+                </span>
+              ))}
+            </h1>
+            <p className="hero__intro">{t.heroIntro}</p>
+          </div>
         </section>
 
         <section ref={s2} className="section gallery" aria-label={t.navGallery}>
