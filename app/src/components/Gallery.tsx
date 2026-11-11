@@ -2,36 +2,38 @@ import type { Work } from "../content";
 
 type Props = {
   works: Work[];
-  previewCount: number;
   expanded: boolean;
-  variant: "illu" | "concept";
   moreLabel: string;
   lessLabel: string;
   onToggle: () => void;
-  onOpen: (index: number) => void;
+  /** Opens the lightbox on the works currently visible, at the clicked one. */
+  onOpen: (works: Work[], index: number) => void;
 };
 
-/** Framed grid of works with the "more / less" toggle from the design. */
+/** Framed grid of works: featured ones first, the rest behind "more / less". */
 export function Gallery(p: Props) {
-  const canExpand = p.works.length > p.previewCount;
-  const shown = p.expanded ? p.works : p.works.slice(0, p.previewCount);
+  const featured = p.works.filter((w) => w.featured);
+  // With nothing marked as featured, show everything rather than an empty grid.
+  const preview = featured.length > 0 ? featured : p.works;
+  const canExpand = p.works.length > preview.length;
+  const shown = p.expanded ? p.works : preview;
 
   return (
     <>
-      <div className={`grid grid--${p.variant}`}>
+      <div className="grid">
         {shown.map((w, i) => (
           <button
             key={w.src}
             type="button"
-            className="frame"
+            className={w.wide ? "frame frame--wide" : "frame"}
             style={w.bg ? { background: w.bg } : undefined}
-            onClick={() => p.onOpen(i)}
+            onClick={() => p.onOpen(shown, i)}
             aria-label={w.title}
           >
             <img
               src={w.src}
               alt={w.title}
-              loading={i < p.previewCount ? "eager" : "lazy"}
+              loading={w.featured ? "eager" : "lazy"}
               decoding="async"
               draggable={false}
               onContextMenu={(e) => e.preventDefault()}
