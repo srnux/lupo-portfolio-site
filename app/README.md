@@ -3,10 +3,10 @@
 React + Vite + TypeScript version of the `Lupo Portfolio.dc.html` design in the repo root.
 
 ```sh
-npm install
-npm run dev      # http://localhost:5181
-npm run build    # outputs to dist/
-npm run preview
+pnpm install
+pnpm dev        # http://localhost:5181
+pnpm build      # outputs to dist/
+pnpm preview
 ```
 
 ## Where things live
