@@ -99,7 +99,7 @@
   </section>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;hello@lupo-art.com&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;portfolioFile&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/lupo-portfolio.png&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;illustrationCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:9,&quot;min&quot;:3,&quot;max&quot;:24,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Gallery&quot;},&quot;conceptCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:6,&quot;min&quot;:2,&quot;max&quot;:24,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Gallery&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;lupo@lupoart.de&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;portfolioFile&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/lupo-portfolio.png&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;illustrationCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:9,&quot;min&quot;:3,&quot;max&quot;:24,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Gallery&quot;},&quot;conceptCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:6,&quot;min&quot;:2,&quot;max&quot;:24,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Gallery&quot;}}">
 const COPY = {
   en: {
     navIllu: "Illustration", navConcept: "Concept Art", navAbout: "About me",
@@ -163,7 +163,7 @@ class Component extends DCLogic {
     const t = COPY[this.state.lang];
     const totalIllu = this.props.illustrationCount ?? 9;
     const totalConcept = this.props.conceptCount ?? 6;
-    const email = this.props.email ?? "hello@lupo-art.com";
+    const email = this.props.email ?? "lupo@lupoart.de";
     return {
       t, email,
       mailto: "mailto:" + email,

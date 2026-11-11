@@ -427,6 +427,26 @@ button {
   color: var(--ember);
 }
 
+.footer__legal {
+  grid-column: 1 / -1;
+  margin: 4px 0 0;
+  max-width: 90ch;
+  justify-self: center;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  color: var(--bone-dim);
+}
+
+/* Discourage saving artwork via drag, long-press or selection. */
+.frame img,
+.lightbox img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
 /* ---------- Lightbox ---------- */
 
 .lightbox {
@@ -463,6 +483,11 @@ button {
   align-items: baseline;
   font-size: 22px;
   letter-spacing: 0.6px;
+}
+.lightbox__credit {
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: var(--bone-dim);
 }
 .lightbox__count {
   font-size: 15px;

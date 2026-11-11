@@ -33,6 +33,8 @@ export function Gallery(p: Props) {
               alt={w.title}
               loading={i < p.previewCount ? "eager" : "lazy"}
               decoding="async"
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
               style={{ objectFit: w.fit ?? "cover" }}
             />
             <span className="frame__title">{w.title}</span>
