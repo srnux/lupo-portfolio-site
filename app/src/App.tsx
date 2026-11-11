@@ -135,6 +135,9 @@ export default function App() {
                 {t.contact}
               </button>
             </div>
+            <p className="footer__legal">
+              © {new Date().getFullYear()} {SITE.author}. {t.rights} {t.legal}
+            </p>
           </footer>
         </section>
       </main>
@@ -144,6 +147,7 @@ export default function App() {
           works={lightbox.works}
           index={lightbox.index}
           closeLabel={t.close}
+          author={SITE.author}
           onClose={closeLightbox}
           onIndex={setLightboxIndex}
         />

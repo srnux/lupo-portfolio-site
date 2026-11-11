@@ -5,12 +5,13 @@ type Props = {
   works: Work[];
   index: number;
   closeLabel: string;
+  author: string;
   onClose: () => void;
   onIndex: (index: number) => void;
 };
 
 /** Full-screen viewer for a single work. Esc closes, arrow keys step through. */
-export function Lightbox({ works, index, closeLabel, onClose, onIndex }: Props) {
+export function Lightbox({ works, index, closeLabel, author, onClose, onIndex }: Props) {
   const work = works[index];
   const count = works.length;
   const prev = () => onIndex((index - 1 + count) % count);
@@ -31,9 +32,15 @@ export function Lightbox({ works, index, closeLabel, onClose, onIndex }: Props) 
   return (
     <div className="lightbox" role="dialog" aria-modal="true" aria-label={work.title} onClick={onClose}>
       <figure onClick={(e) => e.stopPropagation()}>
-        <img src={work.src} alt={work.title} />
+        <img
+          src={work.src}
+          alt={work.title}
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
+        />
         <figcaption>
           {work.title}
+          <span className="lightbox__credit">© {author}</span>
           <span className="lightbox__count">
             {index + 1} / {count}
           </span>

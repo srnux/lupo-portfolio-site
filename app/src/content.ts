@@ -13,6 +13,9 @@ export const COPY = {
     backToStart: "Back to start",
     menu: "Menu",
     close: "Close",
+    rights: "All rights reserved.",
+    legal:
+      "All images and content on this website are the author's work and protected by copyright. Any use, reproduction, distribution or modification – including downloading, copying, screenshots or use for AI training – is prohibited without the author's prior written consent.",
     aboutBody:
       "I'm Lupo, a design and illustration student working between hand-drawn character work and moody concept art for games and books. I draw in ink and paint digitally, and I like faces that look like they have been through something. Currently taking on commissions, collaborations and internships.",
   },
@@ -28,6 +31,9 @@ export const COPY = {
     backToStart: "Zurück zum Anfang",
     menu: "Menü",
     close: "Schließen",
+    rights: "Alle Rechte vorbehalten.",
+    legal:
+      "Sämtliche Bilder und Inhalte dieser Website sind Werke des Urhebers und urheberrechtlich geschützt. Jede Nutzung, Vervielfältigung, Verbreitung oder Bearbeitung – einschließlich Download, Kopie, Screenshot oder Verwendung für KI-Training – ist ohne vorherige schriftliche Zustimmung des Urhebers untersagt.",
     aboutBody:
       "Ich bin Lupo, Student für Design und Illustration – zwischen handgezeichneter Charakterarbeit und stimmungsvollem Concept Art für Spiele und Bücher. Ich zeichne mit Tusche und male digital, und ich mag Gesichter, die etwas erlebt haben. Für Aufträge, Kollaborationen und Praktika bin ich offen.",
   },
@@ -37,7 +43,9 @@ export type Copy = (typeof COPY)[Lang];
 
 /** Site settings (formerly the editable props of the .dc.html design). */
 export const SITE = {
-  email: "hello@lupo-art.com",
+  /** Copyright holder named in the footer and lightbox. */
+  author: "Lupo",
+  email: "lupo@lupoart.de",
   /** Downloadable portfolio file, served from /public. */
   portfolioFile: `${import.meta.env.BASE_URL}lupo-portfolio.pdf`,
   heroVideo: `${import.meta.env.BASE_URL}images/timeline-1.mp4`,
