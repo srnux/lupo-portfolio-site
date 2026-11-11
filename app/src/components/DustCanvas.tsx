@@ -47,9 +47,9 @@ export function DustCanvas({ className }: { className?: string }) {
     };
 
     const burst = () => {
-      // origin biased to the right half, where the hero figure sits
-      const ox = w * (0.42 + Math.random() * 0.52);
-      const oy = h * (0.25 + Math.random() * 0.6);
+      // origin anywhere across the hero, slightly overscanned so plumes reach the edges
+      const ox = w * (-0.05 + Math.random() * 1.1);
+      const oy = h * (0.1 + Math.random() * 0.85);
       const n = 9 + Math.floor(Math.random() * 7);
       const power = 0.6 + Math.random() * 0.9;
       for (let i = 0; i < n; i++) {
@@ -66,7 +66,7 @@ export function DustCanvas({ className }: { className?: string }) {
           max: 150 + Math.random() * 190,
           seed: Math.random() * 6.28,
           tone: 62 + Math.floor(Math.random() * 46),
-          alpha: 0.12 + Math.random() * 0.2,
+          alpha: (0.12 + Math.random() * 0.2) * 0.8,
         });
       }
     };
@@ -77,9 +77,8 @@ export function DustCanvas({ className }: { className?: string }) {
         burst();
         nextBurst = t + 40 + Math.random() * 110;
       }
+      // transparent canvas: it is layered over the video/shade and screen-blended
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = "#0b090b";
-      ctx.fillRect(0, 0, w, h);
       ctx.globalCompositeOperation = "lighter";
       for (let i = puffs.length - 1; i >= 0; i--) {
         const p = puffs[i];

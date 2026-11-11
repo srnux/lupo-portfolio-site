@@ -212,6 +212,7 @@ button {
   display: grid;
   align-items: center;
   overflow: hidden;
+  background: #0b090b;
 }
 .hero__layer {
   position: absolute;
@@ -222,6 +223,11 @@ button {
 }
 .hero__video {
   object-fit: cover;
+}
+/* Dust drifts over the whole hero — above video and shade, below the title. */
+.hero__dust {
+  pointer-events: none;
+  mix-blend-mode: screen;
 }
 /* Wide screens: keep the portrait video whole, anchored right like the mockup,
    fading into the dust on its left edge. */
@@ -388,11 +394,13 @@ button {
 }
 .about p {
   margin: 0;
-  max-width: 58ch;
   font-size: inherit;
   line-height: 1.6;
   color: rgba(242, 236, 230, 0.92);
   text-wrap: pretty;
+}
+.about__text p {
+  max-width: 58ch;
 }
 
 .footer {
@@ -444,7 +452,7 @@ button {
 .footer__legal {
   grid-column: 1 / -1;
   margin: 4px 0 0;
-  max-width: 90ch;
+  max-width: 960px;
   justify-self: center;
   text-align: center;
   font-size: 13px;

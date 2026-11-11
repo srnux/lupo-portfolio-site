@@ -35,9 +35,9 @@
       this._ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     _burst() {
-      // origin biased to the right half, where the mockup's figure sits
-      const ox = this._w * (0.42 + Math.random() * 0.52);
-      const oy = this._h * (0.25 + Math.random() * 0.6);
+      // origin anywhere across the hero, slightly overscanned so plumes reach the edges
+      const ox = this._w * (-0.05 + Math.random() * 1.1);
+      const oy = this._h * (0.1 + Math.random() * 0.85);
       const n = 9 + Math.floor(Math.random() * 7);
       const power = 0.6 + Math.random() * 0.9;
       for (let i = 0; i < n; i++) {

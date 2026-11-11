@@ -63,7 +63,6 @@ export default function App() {
 
       <main>
         <section ref={s1} className="section hero" aria-label="Lupo">
-          <DustCanvas className="hero__layer" />
           {!videoFailed && (
             <video
               className="hero__layer hero__video"
@@ -78,6 +77,7 @@ export default function App() {
             />
           )}
           <div className="hero__shade" />
+          <DustCanvas className="hero__layer hero__dust" />
           <h1 className="hero__title">
             Lupo´s
             <br />
