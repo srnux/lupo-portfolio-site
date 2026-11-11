@@ -41,6 +41,8 @@ export const SITE = {
   /** Downloadable portfolio file, served from /public. */
   portfolioFile: `${import.meta.env.BASE_URL}lupo-portfolio.pdf`,
   heroVideo: `${import.meta.env.BASE_URL}images/timeline-1.mp4`,
+  /** First frame of the hero video, shown while it loads. */
+  heroPoster: `${import.meta.env.BASE_URL}images/timeline-1-poster.jpg`,
   /** How many works each gallery shows before "more" is clicked. */
   illustrationPreview: 3,
   conceptPreview: 2,

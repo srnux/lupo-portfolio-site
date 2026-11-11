@@ -71,6 +71,7 @@ export default function App() {
             <video
               className="hero__layer hero__video"
               src={SITE.heroVideo}
+              poster={SITE.heroPoster}
               autoPlay
               muted
               loop
