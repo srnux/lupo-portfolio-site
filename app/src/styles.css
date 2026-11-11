@@ -274,12 +274,8 @@ button {
 .grid {
   display: grid;
   gap: 18px;
-}
-.grid--illu {
+  /* auto-fit collapses unused column slots so a short row still spans the full width. */
   grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
-}
-.grid--concept {
-  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
 }
 
 .frame {
@@ -292,11 +288,23 @@ button {
   animation: fade-in 500ms var(--ease) both;
   transition: border-color 300ms;
 }
-.grid--illu .frame {
+.frame {
   aspect-ratio: 1 / 1.414;
 }
-.grid--concept .frame {
+/* Landscape works take two columns and stretch to the row height set by their portrait
+   neighbours. Their own ratio is a little flatter than that row, so it never makes the row
+   taller; it only sizes a row the wide work has to itself. */
+.frame--wide {
+  grid-column: span 2;
   aspect-ratio: 3 / 2;
+  align-self: stretch;
+}
+/* Single-column phones have no second column to span into. */
+@media (max-width: 540px) {
+  .frame--wide {
+    grid-column: auto;
+    aspect-ratio: 3 / 2;
+  }
 }
 .frame img {
   display: block;
@@ -372,10 +380,16 @@ button {
   line-height: 1.05;
   letter-spacing: 0.5px;
 }
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-size: clamp(17px, 1.45vw, 24px);
+}
 .about p {
   margin: 0;
-  max-width: 46ch;
-  font-size: clamp(20px, 2.1vw, 32px);
+  max-width: 58ch;
+  font-size: inherit;
   line-height: 1.6;
   color: rgba(242, 236, 230, 0.92);
   text-wrap: pretty;

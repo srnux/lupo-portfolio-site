@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type RefObject } from "react";
-import { COPY, CONCEPTS, ILLUSTRATIONS, SITE, type Lang, type Work } from "./content";
+import { COPY, SITE, WORKS, type Lang, type Work } from "./content";
 import { DustCanvas } from "./components/DustCanvas";
 import { Gallery } from "./components/Gallery";
 import { Header } from "./components/Header";
@@ -9,8 +9,7 @@ import { useHideOnScroll } from "./hooks/useHideOnScroll";
 export default function App() {
   const [lang, setLang] = useState<Lang>("en");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [illuOpen, setIlluOpen] = useState(false);
-  const [conceptOpen, setConceptOpen] = useState(false);
+  const [galleryOpen, setGalleryOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
   const [lightbox, setLightbox] = useState<{ works: Work[]; index: number } | null>(null);
@@ -18,7 +17,6 @@ export default function App() {
   const scroller = useRef<HTMLDivElement>(null);
   const s1 = useRef<HTMLElement>(null);
   const s2 = useRef<HTMLElement>(null);
-  const s3 = useRef<HTMLElement>(null);
   const s4 = useRef<HTMLElement>(null);
 
   const t = COPY[lang];
@@ -36,9 +34,9 @@ export default function App() {
   };
 
   // Collapsing a long gallery would otherwise strand the reader far below it.
-  const toggleGallery = (open: boolean, set: (v: boolean) => void, ref: RefObject<HTMLElement | null>) => {
-    if (open) goTo(ref);
-    set(!open);
+  const toggleGallery = () => {
+    if (galleryOpen) goTo(s2);
+    setGalleryOpen(!galleryOpen);
   };
 
   const closeLightbox = useCallback(() => setLightbox(null), []);
@@ -59,8 +57,7 @@ export default function App() {
         onLang={setLang}
         onToggleMenu={() => setMenuOpen((o) => !o)}
         onHome={() => goTo(s1)}
-        onIllu={() => goTo(s2)}
-        onConcept={() => goTo(s3)}
+        onGallery={() => goTo(s2)}
         onAbout={() => goTo(s4)}
       />
 
@@ -90,36 +87,25 @@ export default function App() {
           </h1>
         </section>
 
-        <section ref={s2} className="section gallery" aria-label={t.navIllu}>
+        <section ref={s2} className="section gallery" aria-label={t.navGallery}>
           <Gallery
-            works={ILLUSTRATIONS}
-            previewCount={SITE.illustrationPreview}
-            expanded={illuOpen}
-            variant="illu"
+            works={WORKS}
+            expanded={galleryOpen}
             moreLabel={t.more}
             lessLabel={t.less}
-            onToggle={() => toggleGallery(illuOpen, setIlluOpen, s2)}
-            onOpen={(index) => setLightbox({ works: ILLUSTRATIONS, index })}
-          />
-        </section>
-
-        <section ref={s3} className="section gallery" aria-label={t.navConcept}>
-          <Gallery
-            works={CONCEPTS}
-            previewCount={SITE.conceptPreview}
-            expanded={conceptOpen}
-            variant="concept"
-            moreLabel={t.more}
-            lessLabel={t.less}
-            onToggle={() => toggleGallery(conceptOpen, setConceptOpen, s3)}
-            onOpen={(index) => setLightbox({ works: CONCEPTS, index })}
+            onToggle={toggleGallery}
+            onOpen={(works, index) => setLightbox({ works, index })}
           />
         </section>
 
         <section ref={s4} className="section about" aria-labelledby="about-title">
           <div className="about__body">
             <h2 id="about-title">{t.aboutTitle}</h2>
-            <p>{t.aboutBody}</p>
+            <div className="about__text">
+              {t.aboutBody.split("\n\n").map((para) => (
+                <p key={para}>{para}</p>
+              ))}
+            </div>
           </div>
 
           <footer className="footer">

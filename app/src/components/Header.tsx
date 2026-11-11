@@ -8,8 +8,7 @@ type Props = {
   onLang: (lang: Lang) => void;
   onToggleMenu: () => void;
   onHome: () => void;
-  onIllu: () => void;
-  onConcept: () => void;
+  onGallery: () => void;
   onAbout: () => void;
 };
 
@@ -59,11 +58,8 @@ export function Header(p: Props) {
 
       {p.menuOpen && (
         <nav id="site-menu" className="menu">
-          <button type="button" onClick={p.onIllu}>
-            {p.t.navIllu}
-          </button>
-          <button type="button" onClick={p.onConcept}>
-            {p.t.navConcept}
+          <button type="button" onClick={p.onGallery}>
+            {p.t.navGallery}
           </button>
           <button type="button" onClick={p.onAbout}>
             {p.t.navAbout}
