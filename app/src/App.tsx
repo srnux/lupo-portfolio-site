@@ -121,7 +121,7 @@ export default function App() {
               {t.download}
             </a>
             <button type="button" className="logo" onClick={() => goTo(s1)} title={t.backToStart}>
-              Lupo
+              <span className="logo__dot" aria-hidden="true" />Lupo<span className="logo__dot" aria-hidden="true" />
             </button>
             <div className="footer__contact">
               {contactOpen && <a href={`mailto:${SITE.email}`}>{SITE.email}</a>}

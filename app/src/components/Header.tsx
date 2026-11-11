@@ -17,7 +17,7 @@ export function Header(p: Props) {
     <>
       <header className={`header${p.hidden ? " is-hidden" : ""}`}>
         <button type="button" className="logo" onClick={p.onHome} title={p.t.backToStart}>
-          Lupo
+          <span className="logo__dot" aria-hidden="true" />Lupo<span className="logo__dot" aria-hidden="true" />
         </button>
 
         <div className="header__right">

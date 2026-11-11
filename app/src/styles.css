@@ -125,6 +125,25 @@ button {
   color: var(--ember);
   text-shadow: 0 0 18px rgba(226, 104, 92, 0.45);
 }
+/* Ember diamonds either side of the wordmark */
+.logo__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  vertical-align: 0.12em;
+  background: var(--ember);
+  transform: rotate(45deg);
+  transition: box-shadow 200ms;
+}
+.logo__dot:first-child {
+  margin-right: 9px;
+}
+.logo__dot:last-child {
+  margin-left: 9px;
+}
+.logo:hover .logo__dot {
+  box-shadow: 0 0 12px 2px rgba(226, 104, 92, 0.7);
+}
 
 .header__right {
   display: flex;
