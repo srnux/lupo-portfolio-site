@@ -105,7 +105,10 @@ export default function App() {
 
         <section ref={s4} className="section about" aria-labelledby="about-title">
           <div className="about__body">
-            <h2 id="about-title">{t.aboutTitle}</h2>
+            <h2 id="about-title" className="about__label">
+              {t.aboutTitle}
+            </h2>
+            <p className="about__lead">{t.aboutLead}</p>
             <div className="about__text">
               {t.aboutBody.split("\n\n").map((para) => (
                 <p key={para}>{para}</p>
