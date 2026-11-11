@@ -13,6 +13,10 @@ export const COPY = {
     menu: "Menu",
     close: "Close",
     rights: "All rights reserved.",
+    heroLabel: "Illustration & Concept Art",
+    heroTitle: "Characters with stories.\nWorlds to discover.",
+    heroIntro:
+      "I’m Lupo, an illustrator and cover artist based in Hamburg. I create atmospheric, painterly artwork that brings characters and dark fantasy worlds to life.",
     legal:
       "All images and content on this website are the author's work and protected by copyright. Any use, reproduction, distribution or modification – including downloading, copying, screenshots or use for AI training – is prohibited without the author's prior written consent.",
     aboutBody:
@@ -30,6 +34,11 @@ export const COPY = {
     menu: "Menü",
     close: "Schließen",
     rights: "Alle Rechte vorbehalten.",
+    // ENTWURF — Übersetzung des englischen Hero-Textes, bitte prüfen.
+    heroLabel: "Illustration & Concept Art",
+    heroTitle: "Charaktere mit Geschichten.\nWelten zum Entdecken.",
+    heroIntro:
+      "Ich bin Lupo, Illustrator und Coverkünstler aus Hamburg. Ich schaffe atmosphärische, malerische Bilder, die Charaktere und düstere Fantasywelten zum Leben erwecken.",
     legal:
       "Sämtliche Bilder und Inhalte dieser Website sind Werke des Urhebers und urheberrechtlich geschützt. Jede Nutzung, Vervielfältigung, Verbreitung oder Bearbeitung – einschließlich Download, Kopie, Screenshot oder Verwendung für KI-Training – ist ohne vorherige schriftliche Zustimmung des Urhebers untersagt.",
     aboutBody:
